@@ -1,0 +1,81 @@
+<a href="/">My Sketches</a>
+<a href="/{{sketch_id}}">{{sketch_name}}</a>
+<div class="card">
+    <table>
+        <tr class="title">
+            <th colspan="2">
+                <h3>{{model.name}}</h3>
+            </th>
+        </tr>
+        <tr>
+            <th>Responsibilities</th>
+            <th>Partners</th>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    {% for responsibility in model.responsibilities %}
+                    <li>{{responsibility|escape}}
+                        <form method="POST" action="{{success_url}}">
+                            <input type="hidden" name="object_type" value="responsibility" />
+                            <input type="hidden" name="responsibility" value="{{responsibility}}" />
+                            <button type="submit" name="remove" class="remove_button" title="Remove this responsibility" >
+                                <img src="/images/delete_button.png" />
+                            </button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div id="responsibility_form_block">
+                    <form method="POST" action="{{success_url}}">
+                        <p>Add another responsibility:</p>
+                		<p><input type="text" id="id_responsibility" name="responsibility"></p>
+                		<input type="hidden" name="object_type" value="responsibility">
+                    	<p><input type="submit" name="add" value="Add this responsibility" /></p>
+                    </form>
+                </div>
+            </td>
+            <td>
+                <ul>
+                    {% for partner in partners %}
+                    <li>
+                        <a href="{{ partner.action_url }}">{{ partner.name }}</a>
+                        <form method="POST" action="{{success_url}}">
+                            <input type="hidden" name="object_type" value="partner" />
+                            <input type="hidden" name="partner" value="{{partner.id}}" />
+                            <button type="submit" name="remove" class="remove_button" title="Remove this partner" >
+                                <img src="/images/delete_button.png" />
+                            </button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <form method="POST" action="{{success_url}}">
+                    <p>Add a partner:</p>
+                    <p>
+                        <label for="id_partner">Partner:</label>
+                        <select id="id_partner" name="partner" size="1">
+                            <option value="">Choose a partner</option>
+                            {% for object in potential_partners %}
+                                {% ifnotequal object.name  model.name %}
+                                <option value="{{object.id}}">{{object.name}}</option>
+                                {% endifnotequal %}
+                            {% endfor %}
+                            <option
+                        </select>
+                        <input type="hidden" name="object_type" value="partner" />
+                        <p><input type="submit" name="add" value="Add this partner" /></p>
+                </form>
+                <div id="partner_form_block">
+                    <form method="POST" action="{{success_url}}}">
+                        <p>Create a new partner:</p>
+                		<p><label for="id_new_partner">Partner:</label>
+                		<input type="hidden" name="object_type" value="partner" />
+                		<input type="text" id="id_new_partner" name="partner"></p>
+                    	<p><input type="submit" name="add" value="Add this partner" /></p>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

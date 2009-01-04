@@ -1,0 +1,39 @@
+body{
+    background-image: url('/images/graph.png')
+}
+
+table{
+    background-color: #FFF;
+    border: 1px solid gray;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+td{
+    vertical-align: top;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+h3{
+    border-bottom: 1px solid gray;
+    margin-bottom: 0px;
+}
+
+form{
+    display: inline;
+}
+
+button.remove_button{
+    -webkit-appearance: square-button;
+    padding: 0px;
+}
+
+ul{
+    padding-left: 0px;  
+}
+
+ul li{
+    list-style-type: none;
+}

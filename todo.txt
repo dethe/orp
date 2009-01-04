@@ -1,0 +1,47 @@
+# Remaining steps and tasks for Orp
+
+## Project Management
+
+* Put it in github
+* Make a features/bugs page
+
+## Basic functionality
+
+* Add new object as a partner
+* Test all adding and removing
+* Filter out current object and existing partners from potential partners
+
+## Styling
+
+* Add metaball blogs
+* Make remove buttons look nicer
+* Graph paper background
+* Nice fonts and layouts
+* Make cards look like cards (or something)
+* Logo
+* favicon
+
+## Layout
+
+* Allow multiple cards on a single page
+* Allow them to be dragged around (save their position)
+* Make a nice layout using graphviz (http://www.websequencediagrams.com/)
+
+## Marketing
+
+* Write documentation
+* Link to Web Sequence Diagrams (http://www.websequencediagrams.com/)
+* Link to Sierra Sliders
+
+## Basic Javascript
+
+* Hide "Add new partner" unless it is selected in list
+
+## Ajaxify
+
+## Import/Export
+
+* Allow sketches to be added or saved in plain text
+* Allow sketches to be added or saved in json
+* Allow sketches to be added or saved in xml
+* Allow sketches to be saves as pngs

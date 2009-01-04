@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>ORP: {{model.name}}</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" title="default">
+    </head>
+    <body>
+        <a href="{{auth_url}}" style="float:right">{{auth_text}}</a>
+        <h1>ORP</h1>
+        {% if message %}
+        <div class="message">{{message}}</div>
+        {% endif %}
+        {% include body_template %}
+    </body>
+</html>

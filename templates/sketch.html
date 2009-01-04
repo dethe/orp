@@ -1,0 +1,24 @@
+<a href="/">My Sketches</a>
+<h2>{{model.name}}</h2>
+<b>{{objects.length}}</b>
+<ul>
+{% for object in objects %}
+    <li><a href="/{{model_id}}/{{object.id}}">{{ object.name }}</a>
+        <form method="POST" action="{{success_url}}">
+            <input type="hidden" name="object_type" value="object" />
+            <input type="hidden" name="object_id" value="{{object.id}}" />
+            <button type="submit" name="remove" class="remove_button" title="Remove this object" >
+                <img src="/images/delete_button.png" />
+            </button>
+        </form>    </li>
+{% endfor %}
+</ul>
+<form method="POST" action="{{success_url}}">
+    Add another object:
+	<p>
+	    <label for="id_name">Name:</label>
+	    <input type="text" name="object" id="id_name" />
+	</p>
+	<input type="hidden" name="object_type" value="object" />
+	<input type="submit" name="add" value="Add this object" />
+</form>
