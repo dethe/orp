@@ -2,7 +2,7 @@
 
 ## Project Management
 
-* Put it in github
+* Put it in github [Check]
 * Make a features/bugs page
 
 ## Basic functionality
