@@ -39,7 +39,7 @@
                 <ul>
                     {% for partner in partners %}
                     <li>
-                        <a href="{{ partner.action_url }}">{{ partner.name }}</a>
+                        <a href="/{{sketch_id}}/{{partner.id}}">{{ partner.name }}</a>
                         <form method="POST" action="{{success_url}}">
                             <input type="hidden" name="object_type" value="partner" />
                             <input type="hidden" name="partner" value="{{partner.id}}" />
@@ -57,20 +57,17 @@
                         <select id="id_partner" name="partner" size="1">
                             <option value="">Choose a partner</option>
                             {% for object in potential_partners %}
-                                {% ifnotequal object.name  model.name %}
                                 <option value="{{object.id}}">{{object.name}}</option>
-                                {% endifnotequal %}
                             {% endfor %}
-                            <option
                         </select>
                         <input type="hidden" name="object_type" value="partner" />
                         <p><input type="submit" name="add" value="Add this partner" /></p>
                 </form>
                 <div id="partner_form_block">
-                    <form method="POST" action="{{success_url}}}">
+                    <form method="POST" action="{{success_url}}">
                         <p>Create a new partner:</p>
                 		<p><label for="id_new_partner">Partner:</label>
-                		<input type="hidden" name="object_type" value="partner" />
+                		<input type="hidden" name="object_type" value="object" />
                 		<input type="text" id="id_new_partner" name="partner"></p>
                     	<p><input type="submit" name="add" value="Add this partner" /></p>
                     </form>

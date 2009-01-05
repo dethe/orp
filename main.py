@@ -158,8 +158,14 @@ class ObjectHandler(LCHandler):
         self.sketch_name = sketch.name
         self.model_id = object_id
         self.model = ObjectModel.get_by_id(int(object_id), parent=sketch)
-        self.potential_partners = ObjectModel.get(sketch.objects)
         self.partners = ObjectModel.get(self.model.partners)
+        self.potential_partners = ObjectModel.get(sketch.objects)
+        for partner in self.potential_partners[:]:
+            partner_id = partner.key().id()
+            if partner_id == int(object_id):
+                self.potential_partners.remove(partner)
+            elif partner_id in [p.id() for p in self.model.partners]:
+                self.potential_partners.remove(partner)
     
     def get_html(self, sketch_id, object_id):
         self.render()
@@ -186,6 +192,8 @@ class ObjectHandler(LCHandler):
             return self.post_html_responsibility()
         elif self.request.get('object_type') == 'partner':
             return self.post_html_partner()
+        elif self.request.get('object_type') == 'object':
+            return self.post_html_object()
         else:
             self.message = 'There was a problem dispatching to %s' % self.request.get('object_type')
             self.render()
@@ -205,11 +213,21 @@ class ObjectHandler(LCHandler):
         
     def post_html_partner(self):
         partner = ObjectModel.get_by_id(int(self.request.get('partner')), parent=self.sketch).key()
-        logging.info('partner = %s' % partner)
         if 'add' in self.request.arguments():
             self.model.partners.append(partner)
         elif 'remove' in self.request.arguments():
             self.model.partners.remove(partner)
+        self.model.put()
+        self.redirect(self.success_url)
+            
+    def post_html_object(self):
+        partner = ObjectModel(name=self.request.get('partner'), parent=self.sketch)
+        partner.responsibilities = []
+        partner.partners = []
+        partner.put()
+        self.sketch.objects.append(partner.key())
+        self.sketch.put()
+        self.model.partners.append(partner.key())
         self.model.put()
         self.redirect(self.success_url)
     
