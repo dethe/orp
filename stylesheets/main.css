@@ -28,6 +28,7 @@ form{
 button.remove_button{
     -webkit-appearance: square-button;
     padding: 0px;
+    margin-left: 10px;
 }
 
 ul{
