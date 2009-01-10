@@ -16,6 +16,13 @@ td{
     padding-right: 1em;
 }
 
+h1{
+    padding-left: 230px;
+    background-image: url(/images/blob4_large.png);
+    background-repeat: no-repeat;
+    line-height: 126px;
+}
+
 h3{
     border-bottom: 1px solid gray;
     margin-bottom: 0px;

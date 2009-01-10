@@ -7,19 +7,20 @@
 
 ## Basic functionality
 
-* Add new object as a partner
+* Add new object as a partner [Check]
 * Test all adding and removing
-* Filter out current object and existing partners from potential partners
+* Filter out current object and existing partners from potential partners [Check]
+* Hide 'add partners' list if it is empty
 
 ## Styling
 
-* Add metaball blogs
-* Make remove buttons look nicer
-* Graph paper background
+* Add metaball blobs [Check]
+* Make remove buttons look nicer [Check]
+* Graph paper background [Check]
 * Nice fonts and layouts
 * Make cards look like cards (or something)
-* Logo
-* favicon
+* Logo [Check]
+* favicon [Check]
 
 ## Layout
 
